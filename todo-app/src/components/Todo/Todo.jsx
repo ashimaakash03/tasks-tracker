@@ -54,6 +54,7 @@ const Todo = () => {
               number={item.number}
               display={item.display}
               text={item.text}
+              setTodos={setTodos}
             />
           );
         })}
