@@ -13,11 +13,14 @@ const Todo = () => {
       { number: count++, text: inputRef.current.value, display: " " },
     ]);
     inputRef.current.value = "";
+    localStorage.setItem("todos_count", count);
   };
 
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem("todos")));
+    count = localStorage.getItem("todos_count");
   }, []);
+
   useEffect(() => {
     setTimeout(() => {
       console.log(todos);
