@@ -1,15 +1,53 @@
+import { useEffect, useRef, useState } from "react";
 import "./Todo.css";
+import TodoItems from "../TodoItems/TodoItems";
 
+let count = 0;
 const Todo = () => {
+  const [todos, setTodos] = useState([]);
+  const inputRef = useRef(null);
+
+  const addTask = () => {
+    setTodos([
+      ...todos,
+      { number: count++, text: inputRef.current.value, display: " " },
+    ]);
+    inputRef.current.value = "";
+  };
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
   return (
     <div className="todo">
       <div className="todo-header">TO DO LIST</div>
       <div className="todo-add">
-        <input type="text" placeholder="Add Task..." className="todo-input" />
-        <div className="todo-add-btn">ADD</div>
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Add Task..."
+          className="todo-input"
+        />
+        <div
+          onClick={() => {
+            addTask();
+          }}
+          className="todo-add-btn"
+        >
+          ADD
+        </div>
       </div>
       <div className="todo-list">
-
+        {todos.map((item, index) => {
+          return (
+            <TodoItems
+              key={index}
+              number={item.number}
+              display={item.display}
+              text={item.text}
+            />
+          );
+        })}
       </div>
     </div>
   );

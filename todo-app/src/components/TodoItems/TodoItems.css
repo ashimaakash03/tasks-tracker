@@ -1,0 +1,29 @@
+.todo-items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px 0;
+}
+.todo-items-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+.todo-items-container img {
+  float: left;
+  margin-left: 30px;
+}
+.todo-items-text {
+  padding: 30px;
+  font-size: 25px;
+}
+.task-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  margin-right: 30px;
+  align-items: center;
+}
